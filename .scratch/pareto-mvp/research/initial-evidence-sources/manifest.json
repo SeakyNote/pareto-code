@@ -1,0 +1,92 @@
+[
+  {
+    "file": "polyglot_leaderboard.yml",
+    "url": "https://raw.githubusercontent.com/Aider-AI/aider/cb6a152e5ee27fbc77ac499d5e628ccd74a5fa2a/aider/website/_data/polyglot_leaderboard.yml",
+    "retrieved_at_utc": "2026-10-26T15:15:02.786058+00:00",
+    "bytes": 45725,
+    "sha256": "85a50b25953512d18ba4bb0c23c0b8e626fcf9a5b52d287644b8a0b44b9535de"
+  },
+  {
+    "file": "benchmark-32faf82.py",
+    "url": "https://raw.githubusercontent.com/Aider-AI/aider/32faf82b31c54d6f19c5c3d63bc294f748bd3e72/benchmark/benchmark.py",
+    "retrieved_at_utc": "2026-10-26T15:15:04.427421+00:00",
+    "bytes": 34621,
+    "sha256": "ba350b7b3ebcc9da6f588c0724dade552791b3c5edd9f16641eadb5931de9c30",
+    "resolved_commit": "32faf82b31c54d6f19c5c3d63bc294f748bd3e72",
+    "git_blob_sha1": "cc694a9f70de35d49ff92b95f347dca6408efe1b",
+    "matches_git_tree_blob": true
+  },
+  {
+    "file": "benchmark-readme-32faf82.md",
+    "url": "https://raw.githubusercontent.com/Aider-AI/aider/32faf82b31c54d6f19c5c3d63bc294f748bd3e72/benchmark/README.md",
+    "retrieved_at_utc": "2026-10-26T15:15:06.057751+00:00",
+    "bytes": 5933,
+    "sha256": "c87a9cd84c1d55a0d5e3d3b7d61e65d83c0dd6f66fe12310bfd37c5994d22074",
+    "resolved_commit": "32faf82b31c54d6f19c5c3d63bc294f748bd3e72",
+    "git_blob_sha1": "7765c00b79c9c826aed8268c2718d11febc61202",
+    "matches_git_tree_blob": true
+  },
+  {
+    "file": "leaderboard-index.md",
+    "url": "https://raw.githubusercontent.com/Aider-AI/aider/cb6a152e5ee27fbc77ac499d5e628ccd74a5fa2a/aider/website/docs/leaderboards/index.md",
+    "retrieved_at_utc": "2026-10-26T15:15:07.853462+00:00",
+    "bytes": 12390,
+    "sha256": "0560519b04808ad6efdbd18065c20eeb5a1b904262e0a7593141aa984c2e7118"
+  },
+  {
+    "file": "leaderboard-notes.md",
+    "url": "https://raw.githubusercontent.com/Aider-AI/aider/cb6a152e5ee27fbc77ac499d5e628ccd74a5fa2a/aider/website/docs/leaderboards/notes.md",
+    "retrieved_at_utc": "2026-10-26T15:15:09.033463+00:00",
+    "bytes": 1734,
+    "sha256": "aebac3fc9be9ab72aba28c2edbae74811ece04a6437c04545569b21acdfa03fb"
+  },
+  {
+    "file": "polyglot-description.md",
+    "url": "https://raw.githubusercontent.com/Aider-AI/aider/cb6a152e5ee27fbc77ac499d5e628ccd74a5fa2a/aider/website/_posts/2024-12-21-polyglot.md",
+    "retrieved_at_utc": "2026-10-26T15:15:52.972668+00:00",
+    "bytes": 7031,
+    "sha256": "0ecb68014e42862a38f13a066f37b657a1dae369fea2dcd71367a49a3624dcf6"
+  },
+  {
+    "file": "benchmark-rsync-32faf82.sh",
+    "url": "https://raw.githubusercontent.com/Aider-AI/aider/32faf82b31c54d6f19c5c3d63bc294f748bd3e72/benchmark/rsync.sh",
+    "retrieved_at_utc": "2026-10-26T15:15:54.088055+00:00",
+    "bytes": 916,
+    "sha256": "4cbb0e5299d7e1ad17ae860e12443252a2639542a5f69ce61fabe9babc49e6ee"
+  },
+  {
+    "file": "benchmark-rungrid-32faf82.py",
+    "url": "https://raw.githubusercontent.com/Aider-AI/aider/32faf82b31c54d6f19c5c3d63bc294f748bd3e72/benchmark/rungrid.py",
+    "retrieved_at_utc": "2026-10-26T15:15:55.247883+00:00",
+    "bytes": 1354,
+    "sha256": "2c21a144a94003093d6fb9541c76b46d76a5ca4ffec602930f67c882a266a7a5"
+  },
+  {
+    "file": "LICENSE.txt",
+    "url": "https://raw.githubusercontent.com/Aider-AI/aider/32faf82b31c54d6f19c5c3d63bc294f748bd3e72/LICENSE.txt",
+    "retrieved_at_utc": "2026-10-26T15:15:56.342745+00:00",
+    "bytes": 11358,
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  },
+  {
+    "file": "gpt5-high-update.json",
+    "url": "https://api.github.com/repos/Aider-AI/aider/commits/bfef1906bb036f7db0d618e789e299dffdc493ca",
+    "retrieved_at_utc": "2026-10-26T15:15:57.998482+00:00",
+    "bytes": 5864,
+    "sha256": "de9b83ccb2eef72a1c930825457c210d5271727219616a976bb029cdf2f2b846"
+  },
+  {
+    "file": "gpt5-medium-low-update.json",
+    "url": "https://api.github.com/repos/Aider-AI/aider/commits/54b266f2895c5023470d712ad7d51df1b545560c",
+    "retrieved_at_utc": "2026-10-26T15:15:59.411096+00:00",
+    "bytes": 6595,
+    "sha256": "011e0c42f368ae847271030ebe53137aff40f9d35f6e40151613964cf3c6676a"
+  },
+  {
+    "file": "polyglot-readme.md",
+    "url": "https://raw.githubusercontent.com/Aider-AI/polyglot-benchmark/7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f/README.md",
+    "retrieved_at_utc": "2026-10-26T15:17:10.765374+00:00",
+    "bytes": 1077,
+    "sha256": "9a06b876910a1566e5152658213d70e62922642513c7dfeb04bed868d510856e"
+  }
+]
