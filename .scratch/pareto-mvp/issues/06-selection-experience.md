@@ -8,9 +8,11 @@ Blocked by: 04, 05
 
 Parent: [MVP 决策地图](../map.md)
 
-Prerequisites: [前沿与选型建议规则](04-pareto-and-selection.md)、[导入与证据契约](05-import-and-evidence.md)
+Prerequisites: [首个编码任务与选型需求](02-first-task-scope.md#answer)、[前沿与选型建议规则](04-pareto-and-selection.md)、[导入与证据契约](05-import-and-evidence.md)
 
 ## Question
+
+沿用[首个编码任务与选型需求](02-first-task-scope.md#answer)已确认的使用故事、场景选择方式和证据覆盖边界。
 
 基于已决定的推荐规则和导入契约，制作可供用户反馈的低成本交互原型，确定 MVP 的主要使用流程、信息层级和默认展示。
 
