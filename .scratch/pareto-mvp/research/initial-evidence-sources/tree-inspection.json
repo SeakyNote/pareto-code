@@ -1,0 +1,67 @@
+[
+  {
+    "url": "https://api.github.com/repos/Aider-AI/aider/git/trees/32faf82b31c54d6f19c5c3d63bc294f748bd3e72?recursive=1",
+    "resolved_tree_sha": "32faf82b31c54d6f19c5c3d63bc294f748bd3e72",
+    "original_response_bytes": 185799,
+    "original_response_sha256": "7909dd95db3ca04393d2da19fa74634cdb30f1db3cd78293272390cb226831ff",
+    "truncated": false,
+    "entry_count": 765,
+    "root_entries": [
+      ".dockerignore",
+      ".flake8",
+      ".github",
+      ".gitignore",
+      ".pre-commit-config.yaml",
+      "CNAME",
+      "CONTRIBUTING.md",
+      "HISTORY.md",
+      "LICENSE.txt",
+      "MANIFEST.in",
+      "README.md",
+      "aider",
+      "benchmark",
+      "docker",
+      "pyproject.toml",
+      "pytest.ini",
+      "requirements.txt",
+      "requirements",
+      "scripts",
+      "tests"
+    ],
+    "searched_path_substrings": [
+      "gpt-5",
+      "gpt5",
+      ".aider.results.json",
+      ".aider.chat.history",
+      "tmp.benchmarks"
+    ],
+    "matching_paths": [],
+    "note": "Derived inspection summary; the full API response is not bundled. This only searches paths, not every file content."
+  },
+  {
+    "url": "https://api.github.com/repos/Aider-AI/polyglot-benchmark/git/trees/7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f?recursive=1",
+    "resolved_tree_sha": "7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f",
+    "original_response_bytes": 967960,
+    "original_response_sha256": "53cae5f6d8634b5f30ef70091aed83ab6b4fdfd3686ebb649971821069ab4d9a",
+    "truncated": false,
+    "entry_count": 3646,
+    "root_entries": [
+      "README.md",
+      "cpp",
+      "go",
+      "java",
+      "javascript",
+      "python",
+      "rust"
+    ],
+    "searched_path_substrings": [
+      "gpt-5",
+      "gpt5",
+      ".aider.results.json",
+      ".aider.chat.history",
+      "tmp.benchmarks"
+    ],
+    "matching_paths": [],
+    "note": "Derived inspection summary; the full API response is not bundled. This only searches paths, not every file content."
+  }
+]
