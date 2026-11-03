@@ -1,0 +1,19 @@
+[project]
+name = "pareto-code"
+version = "0.1.0"
+description = "面向代码审查场景的 AI 效费比评估与帕累托选型工作台"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+pareto-code = "pareto.server:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["pareto*"]
+
+[tool.setuptools.package-data]
+pareto = ["static/*", "data/*.json"]

@@ -1,0 +1,28 @@
+[
+  {
+    "id": "your-record-001",
+    "scenario": "code-review",
+    "suite": "code-review-v1",
+    "score_method": "issue-f1-v1",
+    "latency_method": "end-to-end-v1",
+    "dataset_kind": "measured",
+    "source_type": "self-built",
+    "source_name": "填写评测来源",
+    "source_url": "",
+    "measured_at": "2026-11-03T12:00:00+08:00",
+    "sample_size": 8,
+    "model_version": "填写实际版本",
+    "agent": "填写 Agent",
+    "notes": "这是字段模板，请替换全部示例数值、评测时间和来源后导入。",
+    "monthly_fee_cny": null,
+    "model": "填写模型",
+    "reasoning": "填写推理强度",
+    "provider": "填写供应商",
+    "channel": "api",
+    "quality": null,
+    "cost_cny": null,
+    "latency_seconds": null,
+    "cost_method": "api-billed-cny-v1",
+    "cost_notes": "填写实际账单费用（含汇率、推理、缓存等）的口径"
+  }
+]

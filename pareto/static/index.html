@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#163d32">
+  <meta name="description" content="基于效果、费用和完整任务耗时的三维帕累托 AI 配置选型工作台。">
+  <title>Pareto Code · AI 效费比选型</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <svg class="icon-defs" aria-hidden="true"><defs>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 3v17h17M7 15l5-5 4 2 5-8"/><circle cx="12" cy="10" r="1.5"/><circle cx="16" cy="12" r="1.5"/></symbol>
+    <symbol id="i-data" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v7c0 4 16 4 16 0V5M4 12v7c0 4 16 4 16 0v-7"/></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v7L4 19a1 1 0 0 0 1 2h14a1 1 0 0 0 1-2l-6-9V3M7 15h10"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 4h6l2 2 2-2h6v16h-6l-2 1-2-1H4zM12 6v15M7 9h2M15 9h2M7 13h2M15 13h2"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M4 16v4h16v-4"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M4 16v4h16v-4"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5z"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M20 8V5H5a2 2 0 0 0 0 4h16v11H5a2 2 0 0 1-2-2V7M16 12h5v5h-5z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="M15 15l6 6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M6 18L18 6"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 9a8 8 0 1 0 0 7M20 3v6h-6"/></symbol>
+  </defs></svg>
+  <a class="skip-link" href="#main">跳转到主要内容</a>
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#select" aria-label="Pareto Code 首页"><span class="brand-symbol"><i></i><i></i><i></i><i></i></span><span>PARETO<span class="brand-sub">CODE / AI 选型工作台</span></span></a>
+    <div class="workspace-tag"><span class="live-dot"></span>个人工作空间 <span class="tag-small">MVP</span></div>
+    <p class="nav-caption">工作台</p>
+    <nav aria-label="主导航">
+      <a href="#select" data-view="select" class="nav-link active"><svg class="icon"><use href="#i-chart"/></svg>智能选型<span class="nav-indicator"></span></a>
+      <a href="#data" data-view="data" class="nav-link"><svg class="icon"><use href="#i-data"/></svg>评测数据</a>
+      <a href="#benchmark" data-view="benchmark" class="nav-link"><svg class="icon"><use href="#i-flask"/></svg>评测工作台</a>
+      <a href="#method" data-view="method" class="nav-link"><svg class="icon"><use href="#i-book"/></svg>方法与口径</a>
+    </nav>
+    <div class="sidebar-note"><div class="tiny-label">LESS GUESSWORK.<br>BETTER DECISIONS.</div><p>让每一次 AI 选择，<br>都有据可依。</p><span class="note-orbit" aria-hidden="true">↗</span></div>
+    <div class="sidebar-footer"><span class="status-dot"></span>本地运行 · 数据留在本机<span>v0.1</span></div>
+  </aside>
+  <div class="app-shell">
+    <header class="topbar"><div class="breadcrumb"><button class="icon-button mobile-menu" id="menu-toggle" aria-label="展开导航" aria-expanded="false" aria-controls="sidebar"><svg class="icon"><use href="#i-menu"/></svg></button><span>工作台</span><span class="slash">/</span><strong id="breadcrumb-current">智能选型</strong></div><div class="topbar-right"><span class="offline-status"><span class="live-dot"></span>离线可用</span><span class="topbar-separator"></span><label class="sr-only" for="dataset-select">数据性质</label><select id="dataset-select"><option value="demo">演示数据</option><option value="measured">真实评测</option></select><span class="avatar">P</span></div></header>
+    <main id="main" tabindex="-1">
+      <div id="global-error" class="error-banner hidden" role="alert"></div>
+      <section id="view-select" class="view">
+        <div class="page-heading"><div><div class="eyebrow">DECISION WORKSPACE <span>/ 01</span></div><h1>选对 AI，让每一分投入更值得<span class="heading-dot">.</span></h1><p>在效果、费用与耗时之间，找到适合这次任务的配置。</p></div><button class="button secondary" id="export-report"><svg class="icon"><use href="#i-download"/></svg>导出选型报告</button></div>
+        <div class="dataset-banner" id="dataset-banner"><svg class="icon"><use href="#i-info"/></svg><span>正在使用合成演示数据，所有指标与档位均为示例，不代表真实评测或当前报价。</span><a href="#data">导入真实数据 <span>↗</span></a></div>
+        <div class="stats-grid" id="summary" aria-live="polite"><div class="stat-card skeleton"></div><div class="stat-card skeleton"></div><div class="stat-card skeleton"></div><div class="stat-card skeleton"></div></div>
+        <div class="selection-workspace" id="selection-workspace">
+          <form class="constraint-panel card" id="constraints-form">
+            <div class="panel-heading"><h2><svg class="icon"><use href="#i-grid"/></svg>你的任务需求</h2><button type="button" class="text-button" id="reset-constraints">重置</button></div>
+            <label for="scenario">工作场景</label><select id="scenario"><option value="code-review">代码开发 · Python 代码审查</option></select>
+            <label>使用渠道</label><div class="segmented channel-switch" role="group" aria-label="使用渠道"><button type="button" class="active" data-channel="api" aria-pressed="true">API 按量</button><button type="button" data-channel="subscription" aria-pressed="false">会员订阅</button></div>
+            <p class="field-help" id="channel-note">平均单任务账单费用，单位为人民币。</p>
+            <label for="group-select">可比数据组</label><select id="group-select"><option value="">加载中…</option></select>
+            <div class="form-divider"></div>
+            <div class="label-row"><label for="budget">单任务费用上限</label><span>人民币</span></div><div class="unit-input"><span>¥</span><input id="budget" type="number" min="0" max="1000000000000" step="any" value="0.5" placeholder="不限制"><span>/ 次</span></div>
+            <div class="label-row"><label for="max-time">完整任务耗时上限</label></div><div class="unit-input"><svg class="icon"><use href="#i-clock"/></svg><input id="max-time" type="number" min="0" max="86400" step="any" value="60" placeholder="不限制"><span>秒</span></div>
+            <div class="label-row quality-label"><label for="min-quality">最低任务效果</label><output id="quality-value" for="min-quality">80 <small>/ 100</small></output></div><input id="min-quality" type="range" min="0" max="100" value="80" step="1"><div class="range-labels"><span>更宽松</span><span>更严格</span></div>
+            <label for="monthly-tasks">预计月任务量</label><div class="unit-input"><input id="monthly-tasks" type="number" min="1" max="1000000" step="1" value="500"><span>次 / 月</span></div>
+            <button class="button primary full-width" type="submit">更新选型 <svg class="icon"><use href="#i-arrow"/></svg></button>
+            <details class="quick-input"><summary>用一句话快捷填写</summary><label class="sr-only" for="quick-text">按固定规则识别预算、耗时和质量</label><textarea id="quick-text" rows="3" placeholder="预算 0.3 元，45 秒以内，至少 85 分"></textarea><button class="button small secondary full-width" id="parse-requirements" type="button">识别并填写</button><p>本地规则识别数字，不调用 AI。</p></details>
+          </form>
+          <div class="analysis-column">
+            <section class="card chart-card" aria-labelledby="chart-heading"><div class="chart-header"><div><div class="section-kicker">THE PARETO FRONTIER</div><h2 id="chart-heading">每一种取舍，都清晰可见</h2></div><div class="segmented chart-switch" role="group" aria-label="图表横轴"><button class="active" data-axis="cost_cny" aria-pressed="true">费用 × 效果</button><button data-axis="latency_seconds" aria-pressed="false">耗时 × 效果</button></div></div><div class="chart-meta"><span id="chart-snapshot">正在读取数据…</span><button class="text-button" id="chart-help">如何读图 <svg class="icon"><use href="#i-info"/></svg></button></div><div id="scatter-wrap" class="scatter-wrap"><svg id="scatter" viewBox="0 0 820 330" role="img" aria-labelledby="scatter-title scatter-desc"><title id="scatter-title">AI 配置三维帕累托比较</title><desc id="scatter-desc">横轴为费用或耗时，纵轴为任务效果，气泡大小表示完整任务耗时。选择气泡可查看详情。</desc></svg><div id="chart-tooltip" class="chart-tooltip hidden" role="status"></div><div id="chart-empty" class="chart-empty hidden"></div></div><div class="chart-footer"><div class="chart-legend"><span><i class="legend-dot frontier"></i>三维帕累托前沿</span><span><i class="legend-dot dominated"></i>被支配配置</span><span><i class="legend-dot outside"></i>不满足约束</span></div><span class="bubble-note">气泡越大，执行越久</span></div></section>
+            <section class="recommendation-section" aria-labelledby="recommendation-heading"><div class="section-heading"><h2 id="recommendation-heading"><svg class="icon"><use href="#i-spark"/></svg>这次任务，推荐这样选</h2><span class="muted" id="recommendation-meta">规则推荐 · 先满足约束，再选前沿</span></div><div id="recommendations" class="recommendation-grid" aria-live="polite"></div></section>
+          </div>
+        </div>
+        <section class="card comparison-card" aria-labelledby="comparison-heading"><div class="table-heading"><div><h2 id="comparison-heading">配置对比 <span class="count-badge" id="table-count">0</span></h2><p>选择你的惯用配置作为基准，查看同等或更高效果下的费用变化。</p></div><div class="table-actions"><label class="checkbox-label"><input type="checkbox" id="frontier-only">只看前沿</label><label class="search-input"><svg class="icon"><use href="#i-search"/></svg><input id="table-search" type="search" placeholder="搜索模型或渠道" aria-label="搜索配置"></label><button class="icon-button" id="export-csv" aria-label="导出对比 CSV" title="导出对比 CSV"><svg class="icon"><use href="#i-download"/></svg></button></div></div><div class="table-scroll"><table><thead><tr><th>基准</th><th>模型 / 配置</th><th><button data-sort="quality">任务效果 ↕</button></th><th><button data-sort="cost_cny">费用 / 次 ↕</button></th><th><button data-sort="latency_seconds">耗时 ↕</button></th><th>选型状态</th><th><span class="sr-only">详情</span></th></tr></thead><tbody id="comparison-body"></tbody></table></div><div class="table-bottom"><span id="comparison-footnote">完整执行时间，不含员工选型时间。</span><span>费用单位 CNY · 效果仅适用于当前任务集</span></div></section>
+        <details class="exclusions card" id="excluded-panel"><summary><svg class="icon"><use href="#i-info"/></svg><span id="excluded-count">未纳入比较的数据</span><span class="muted">查看原因</span></summary><div id="excluded-list"></div></details>
+      </section>
+      <section id="view-data" class="view hidden">
+        <div class="page-heading"><div><div class="eyebrow">BENCHMARK LIBRARY <span>/ 02</span></div><h1>每一条数据，都经得起追溯<span class="heading-dot">.</span></h1><p>汇集评测快照，保留来源与口径，让选择建立在可比的数据之上。</p></div><button class="button primary" data-open-import><svg class="icon"><use href="#i-upload"/></svg>导入评测数据</button></div>
+        <div class="data-summary" id="data-summary"></div>
+        <section class="card"><div class="table-heading"><div><h2>评测记录 <span class="count-badge" id="data-count">0</span></h2><p>保留全部快照；选型时仅使用同配置的最新记录。</p></div><div class="table-actions"><button class="button small secondary" id="download-template">字段模板</button><button class="button small secondary" id="data-export-json">导出 JSON</button><button class="button small secondary" id="data-export-csv">导出 CSV</button></div></div><div class="table-scroll"><table><thead><tr><th>模型 / 配置</th><th>任务集</th><th>效果 / 费用 / 耗时</th><th>来源</th><th>评测时间</th><th></th></tr></thead><tbody id="data-body"></tbody></table></div></section>
+        <div class="two-column-info"><article class="card info-card"><svg class="icon"><use href="#i-flask"/></svg><h3>从自己的真实任务开始</h3><p>使用内置的 8 道 Python 代码审查任务，记录完整执行时间与费用，再把规则评分结果加入选型。</p><a href="#benchmark" class="text-link">前往评测工作台 ↗</a></article><article class="card info-card"><svg class="icon"><use href="#i-book"/></svg><h3>数据相似，不一定可比</h3><p>场景、任务集、评分标准、执行耗时与费用口径必须一致。第三方数据需要提供来源链接，无法对齐的记录单独成组。</p><a href="#method" class="text-link">了解比较口径 ↗</a></article></div>
+      </section>
+      <section id="view-benchmark" class="view hidden">
+        <div class="page-heading"><div><div class="eyebrow">EVALUATION STUDIO <span>/ 03</span></div><h1>从真实评测，到有据可依的选型<span class="heading-dot">.</span></h1><p>统一任务，保留过程，用确定性规则衡量缺陷定位与误报。</p></div><button class="button secondary" id="download-tasks"><svg class="icon"><use href="#i-download"/></svg>下载任务包</button></div>
+        <div class="benchmark-steps"><div><span>01</span><strong>执行相同任务</strong><p>在待测模型或 Agent 中独立运行 8 题</p></div><svg class="icon"><use href="#i-arrow"/></svg><div><span>02</span><strong>记录完整结果</strong><p>填写原始响应、起止时间与真实账单</p></div><svg class="icon"><use href="#i-arrow"/></svg><div><span>03</span><strong>评分并参与选型</strong><p>检查逐题反馈，导入真实评测数据</p></div></div>
+        <div class="benchmark-layout"><section class="card benchmark-tasks"><div class="panel-heading"><div><div class="section-kicker">CODE-REVIEW-V1</div><h2>Python 代码审查</h2></div><span class="tag">8 个任务</span></div><p class="muted intro-text">每题缺陷行号与类型的 F1 均值 × 100；无缺陷题检验误报。只衡量此任务集，不代表完整编码能力。</p><div id="benchmark-task-list"></div></section><section class="card score-panel"><div class="panel-heading"><h2>提交评测结果</h2><button class="text-button" id="download-results-template">下载结果模板 ↗</button></div><p class="muted">不在此页面调用模型。请从实际运行日志填写模板，支持 API 账单费用或会员月费摊销。</p><label class="file-drop" for="score-file"><svg class="icon"><use href="#i-upload"/></svg><strong>选择结果 JSON 文件</strong><span>或直接将 JSON 粘贴到下方</span><input type="file" id="score-file" accept=".json,application/json"></label><label for="score-content">结果 JSON</label><textarea id="score-content" rows="10" spellcheck="false" placeholder='{"config": {...}, "responses": [...]}'></textarea><button class="button primary full-width" id="score-results">规则评分 <svg class="icon"><use href="#i-arrow"/></svg></button><div id="score-error" class="inline-error hidden" role="alert"></div><div id="score-output" class="hidden"></div></section></div>
+      </section>
+      <section id="view-method" class="view hidden">
+        <div class="page-heading"><div><div class="eyebrow">METHODOLOGY <span>/ 04</span></div><h1>让取舍透明，让推荐可解释<span class="heading-dot">.</span></h1><p>可量化的计算交给数学，最终的选择交给你。</p></div></div>
+        <div class="method-hero card"><span class="section-kicker">THREE OBJECTIVES. NO SINGLE WINNER.</span><h2>没有绝对最好的模型，<br>只有适合任务的配置。</h2><p>如果找不到另一个配置能在效果不降低、费用和耗时不增加的同时，至少有一个指标更好，那么它就在帕累托前沿上。</p><div class="objective-row"><span>任务效果 <strong>↑ 更高</strong></span><span>每任务费用 <strong>↓ 更低</strong></span><span>完整执行时间 <strong>↓ 更短</strong></span></div></div>
+        <div class="method-grid"><article class="card info-card"><span class="method-number">01</span><h3>先确认可以比较</h3><p>仅比较同场景、任务集、评分方法、耗时统计、费用口径和使用渠道的数据。真实与合成数据严格分开。同配置取最新快照；缺少必要指标时直接排除，不自动补零。</p></article><article class="card info-card"><span class="method-number">02</span><h3>三个目标，一起看</h3><p>前沿按三个原始指标计算。图上横轴与纵轴只展示两个维度，气泡大小表示执行耗时；二维投影中看似不占优的点，也可能因为第三个维度而在前沿。相同点不互相支配。</p></article><article class="card info-card"><span class="method-number">03</span><h3>推荐规则完全公开</h3><p>先筛选满足全部约束的配置，再从前沿中给出最便宜、均衡及效果最高三档。均衡使用三个目标的最大归一化遗憾最小原则，范围由可行前沿决定，零跨度维度记 0。不满足约束时不给强行推荐。</p><div class="formula">regret = max(效果差距, 费用差距, 耗时差距)<br>各差距 = 距该目标最优值 / 该目标跨度</div></article><article class="card info-card"><span class="method-number">04</span><h3>两种费用，分别算清</h3><p>API 使用单任务真实账单费用；会员采用月费 ÷ 预计月任务量，两者分开比较。会员摊销只是费用分配假设，不代表边际费用、无限调用或可用额度；预计月任务量改变时即时重算。</p></article><article class="card info-card"><span class="method-number">05</span><h3>节省金额，有质量前提</h3><p>相对你选择的基准，只在满足全部约束且效果不低于基准的配置中，选择成本最低者估算节省金额。没有达标方案就明确显示暂无。所有节省比例都只是当前数据和任务量下的估算。</p></article><article class="card info-card"><span class="method-number">06</span><h3>知道分数的边界</h3><p>自建 v1 是 8 道 Python 微型代码审查任务，包含 2 道无缺陷题；按每题 F1 评分，误报会扣分。格式错误记零分。题量小、公开集可能被污染，不能宣称杜绝刷分；建议后续增加隐藏集与人工校准。</p></article></div>
+        <div class="method-footer"><span class="live-dot"></span>此 MVP 的建议由确定性规则生成，未接入 AI 主观评分或自动外部数据采集。</div>
+      </section>
+      <footer class="page-footer"><span>PARETO CODE</span><span>好的选择，始于看清取舍。</span><a href="#method">关于比较方法 ↗</a></footer>
+    </main>
+  </div>
+  <dialog id="import-dialog"><div class="dialog-header"><div><span class="section-kicker">IMPORT BENCHMARKS</span><h2>导入评测数据</h2></div><button class="icon-button" data-close-dialog aria-label="关闭导入窗口"><svg class="icon"><use href="#i-close"/></svg></button></div><p class="muted">JSON 或 CSV · 最多 500 条 / 2 MiB · 校验后追加，保留原始快照。</p><label class="file-drop" for="import-file"><svg class="icon"><use href="#i-upload"/></svg><strong id="import-file-name">选择 JSON / CSV 文件</strong><span>也可粘贴内容</span><input id="import-file" type="file" accept=".json,.csv,application/json,text/csv"></label><div class="label-row"><label for="import-content">文件内容</label><select id="import-format" aria-label="导入格式"><option value="json">JSON</option><option value="csv">CSV</option></select></div><textarea id="import-content" rows="8" spellcheck="false" placeholder='[{"id": "run-001", "model": "…", ...}]'></textarea><div id="import-error" class="inline-error hidden" role="alert"></div><div id="import-preview" class="import-preview hidden" aria-live="polite"></div><div class="dialog-actions"><button class="button secondary" id="validate-import">校验并预览</button><button class="button primary" id="confirm-import" disabled>确认导入 <svg class="icon"><use href="#i-arrow"/></svg></button></div></dialog>
+  <dialog id="detail-dialog"><div class="dialog-header"><div><span class="section-kicker">CONFIGURATION DETAIL</span><h2 id="detail-title">配置详情</h2></div><button class="icon-button" data-close-dialog aria-label="关闭详情"><svg class="icon"><use href="#i-close"/></svg></button></div><div id="detail-content"></div></dialog>
+  <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+  <noscript><div class="noscript">此工作台需要启用 JavaScript。API 可通过 /api/health 检查。</div></noscript>
+</body>
+</html>
