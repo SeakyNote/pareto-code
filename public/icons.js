@@ -1,0 +1,33 @@
+const paths = {
+  chart: '<path d="M4 4v16h16M8 15l4-6 4 3 4-7"/><circle cx="12" cy="9" r="1.5"/><circle cx="20" cy="5" r="1.5"/>',
+  grid: '<rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/>',
+  database: '<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v7c0 4 16 4 16 0V5M4 12v7c0 4 16 4 16 0v-7"/>',
+  book: '<path d="M12 5c-3-2-6-2-9-1v15c3-1 6-1 9 1 3-2 6-2 9-1V4c-3-1-6-1-9 1zm0 0v15"/>',
+  code: '<path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-14-2 18"/>',
+  pen: '<path d="m15 4 5 5-10 10-7 2 2-7L15 4zm-10 10 5 5m3-13 5 5"/>',
+  sheet: '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M4 9h16M4 15h16M10 9v12"/>',
+  file: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM14 2v6h6M8 13h8m-8 4h6"/>',
+  upload: '<path d="M12 16V3m-5 5 5-5 5 5M4 16v4h16v-4"/>',
+  download: '<path d="M12 3v13m-5-5 5 5 5-5M4 17v4h16v-4"/>',
+  arrow: '<path d="M5 12h14m-5-5 5 5-5 5"/>',
+  chevron: '<path d="m9 5 7 7-7 7"/>',
+  down: '<path d="m6 9 6 6 6-6"/>',
+  check: '<path d="m5 12 4 4L19 6"/>',
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  coin: '<circle cx="12" cy="12" r="9"/><path d="M15 8h-4a2 2 0 0 0 0 4h2a2 2 0 0 1 0 4H9m3-10v2m0 8v2"/>',
+  target: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
+  spark: '<path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3z"/>',
+  info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v.5"/>',
+  search: '<circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/>',
+  close: '<path d="m6 6 12 12M6 18 18 6"/>',
+  compare: '<path d="M8 3v18m8-18v18M4 7l4-4 4 4m0 10 4 4 4-4"/>',
+  reset: '<path d="M3 10a9 9 0 1 1 2 8M3 4v6h6"/>',
+  link: '<path d="M14 3h7v7m0-7L10 14m-1-9H4v15h15v-5"/>',
+  shield: '<path d="m12 2 8 4v6c0 5-8 10-8 10S4 17 4 12V6l8-4z"/><path d="m8 12 3 3 5-6"/>',
+  menu: '<path d="M4 6h16M4 12h16M4 18h16"/>',
+  sort: '<path d="m8 7 4-4 4 4M12 3v18m-4-4 4 4 4-4"/>',
+  layers: '<path d="m12 3 10 5-10 5L2 8l10-5zm-9 10 9 5 9-5M3 18l9 5 9-5"/>',
+};
+export function icon(name, className = '') {
+  return `<svg class="icon ${className}" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name] || paths.info}</svg>`;
+}

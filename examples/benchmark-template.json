@@ -1,0 +1,65 @@
+{
+  "benchmark": {
+    "id": "my-benchmark-demo-v1",
+    "name": "我的代码评测 · 演示模板",
+    "scenario": "coding",
+    "taskSet": "code-repair-demo-v1 / 20 个示例任务",
+    "scoring": "同一测试集通过率，0–100 分；失败任务按 0 分计入平均值",
+    "scoreMax": 100,
+    "aggregation": "mean-per-task",
+    "durationBasis": "wall-clock",
+    "costBasis": "per-task",
+    "currency": "USD",
+    "evaluatedAt": "2026-11-01T08:00:00Z",
+    "source": {
+      "name": "MVP 人工构造演示集",
+      "type": "demo",
+      "url": null
+    },
+    "notes": "数值仅为演示。替换为实测数据、真实任务集、来源与日期后，将 source.type 改为 internal 或 third-party。"
+  },
+  "records": [
+    {
+      "id": "luna-high",
+      "model": "GPT-5.6 Luna",
+      "agent": "Codex",
+      "provider": "OpenAI",
+      "reasoning": "high",
+      "quality": 81,
+      "cost": 0.24,
+      "duration": 510,
+      "version": "demo-v1",
+      "channel": "api",
+      "sampleCount": 20,
+      "notes": "人工构造的演示配置；费用单位为 USD / 任务，执行耗时单位为秒。"
+    },
+    {
+      "id": "luna-xhigh",
+      "model": "GPT-5.6 Luna",
+      "agent": "Codex",
+      "provider": "OpenAI",
+      "reasoning": "xhigh",
+      "quality": 87,
+      "cost": 0.4,
+      "duration": 780,
+      "version": "demo-v1",
+      "channel": "api",
+      "sampleCount": 20,
+      "notes": "人工构造的演示配置；费用单位为 USD / 任务，执行耗时单位为秒。"
+    },
+    {
+      "id": "luna-max",
+      "model": "GPT-5.6 Luna",
+      "agent": "Codex",
+      "provider": "OpenAI",
+      "reasoning": "max",
+      "quality": 91,
+      "cost": 0.68,
+      "duration": 1260,
+      "version": "demo-v1",
+      "channel": "api",
+      "sampleCount": 20,
+      "notes": "人工构造的演示配置；费用单位为 USD / 任务，执行耗时单位为秒。"
+    }
+  ]
+}
