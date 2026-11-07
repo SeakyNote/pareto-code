@@ -4,7 +4,7 @@ Type: grilling
 Labels: wayfinder:grilling
 Status: open
 Parent: ../map.md
-Blocked by: 01, 02
+Blocked by: 01, 02, 09
 
 ## Question
 
@@ -16,4 +16,4 @@ Blocked by: 01, 02
 
 ## Dependencies
 
-先确定[数据路线](01-data-route.md)和[评分依据](02-quality.md)，再锁定可兑现的覆盖和规模。
+先确定[数据路线](01-data-route.md)和[评分依据](02-quality.md)，并取得[CodexRadar 快照核验结论](09-codexradar-evidence.md)，再锁定可兑现的覆盖和规模。核验未通过时按已确认退路评估自建评测，不能默认第三方数据可用。
